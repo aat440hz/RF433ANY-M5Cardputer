@@ -22,7 +22,7 @@ To use RF433ANY-M5Cardputer, download a zip of this repository and include it fr
 
 ## Description
 
-The main code consists of a setup function, a loop function, and auxiliary functions for outputting timing information and clearing the display. Upon receiving RF433 signals, the code decodes the signals and outputs timing information both to the serial interface and the M5Cardputer's LCD display.
+Upon receiving RF433 signals, the code decodes the signals and outputs timing information both to the serial interface and the M5Cardputer's LCD display.
 
 ## Credits
 
