@@ -18,7 +18,6 @@ To use RF433ANY-M5Cardputer, download a zip of this repository and include it fr
 1. Connect your RF433 hardware to the M5Cardputer device.
 2. Include the RF433ANY library in your Arduino sketch.
 3. Use the provided functions and classes to handle RF433 communication and decode signals.
-4. See the examples provided in the library for reference on how to use RF433ANY with M5Cardputer.
 
 ## Description
 
