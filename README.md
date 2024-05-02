@@ -1,6 +1,6 @@
 # RF433ANY-M5Cardputer
 
-RF433ANY-M5Cardputer is a library designed for the M5Cardputer platform, enabling RF433 signal decoding and analysis. It leverages the RF433any library to provide seamless integration of RF433 communication capabilities into M5Stack ecosystem projects.
+RF433ANY-M5Cardputer is designed for the M5Cardputer platform, enabling RF433 signal decoding and analysis. It leverages the RF433any library to provide seamless integration of RF433 communication capabilities into M5Stack ecosystem projects.
 
 ## Installation
 
