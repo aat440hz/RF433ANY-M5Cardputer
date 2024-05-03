@@ -15,13 +15,8 @@ To use RF433ANY-M5Cardputer, download a zip of this repository and include it fr
 
 ## Usage
 
-1. Connect your RF433 hardware to the M5Cardputer device.
-2. Include the RF433ANY library in your Arduino sketch.
-3. Use the provided functions and classes to handle RF433 communication and decode signals.
-
-## Description
-
-Upon receiving RF433 signals, the code decodes the signals and outputs timing information both to the serial interface and the M5Cardputer's LCD display.
+1. Connect your RF433 hardware to the M5Cardputer device and power it on.
+2. Upon receiving RF433 signals, the code decodes the signals and outputs timing information both to the serial interface and the M5Cardputer's LCD display.
 
 ## Credits
 
