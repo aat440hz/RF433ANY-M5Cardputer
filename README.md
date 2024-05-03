@@ -4,7 +4,7 @@ RF433ANY-M5Cardputer is designed for the M5Cardputer platform, enabling RF433 si
 
 ## Installation
 
-To use RF433ANY-M5Cardputer, download this repository, open the .ino file with Arduino IDE and upload it to your M5Cardputer.
+To use RF433ANY-M5Cardputer download this repository, open the .ino file with Arduino IDE and upload it to your M5Cardputer.
 
 ## Features
 
