@@ -2,6 +2,10 @@
 #include "M5Cardputer.h"  // Include the M5Stack library
 
 #define PIN_RFINPUT  1
+// Comment the below macro if you wish to output everything.
+// As most codes are repeated, this'll likely result in the output of the
+// same thing multiple times.
+// #define OUTPUT_FIRST_DECODED_ONLY
 
 char serial_printf_buffer[100];
 void serial_printf(const char* msg, ...) __attribute__((format(printf, 1, 2)));
