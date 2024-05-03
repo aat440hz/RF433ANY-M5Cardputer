@@ -1,14 +1,28 @@
 #include "RF433any.h"
-#include "M5Cardputer.h"  // Include the M5Stack library
+#include <M5Cardputer.h>
 
 #define PIN_RFINPUT  1
+
 // Comment the below macro if you wish to output everything.
 // As most codes are repeated, this'll likely result in the output of the
 // same thing multiple times.
 // #define OUTPUT_FIRST_DECODED_ONLY
 
 char serial_printf_buffer[100];
-void serial_printf(const char* msg, ...) __attribute__((format(printf, 1, 2)));
+void serial_printf(const char* msg, ...)
+     __attribute__((format(printf, 1, 2)));
+
+    // NOTE
+    //   Assume Serial has been initialized (Serial.begin(...))
+void serial_printf(const char* msg, ...) {
+    va_list args;
+
+    va_start(args, msg);
+
+    vsnprintf(serial_printf_buffer, sizeof(serial_printf_buffer), msg, args);
+    va_end(args);
+    Serial.print(serial_printf_buffer);
+}
 
 void setup() {
     M5.begin();  // Initialize the M5Stack display
@@ -23,10 +37,10 @@ void setup() {
 Track track(PIN_RFINPUT);
 
 const char *encoding_names[] = {
-    "RFMOD_TRIBIT",
-    "RFMOD_TRIBIT_INVERTED",
-    "RFMOD_MANCHESTER",
-    "<unmanaged encoding>"
+    "RFMOD_TRIBIT",          // T
+    "RFMOD_TRIBIT_INVERTED", // N
+    "RFMOD_MANCHESTER",      // M
+    "<unmanaged encoding>"   // Anything else
 };
 
 const char *id_letter_to_encoding_name(char c) {
@@ -107,21 +121,20 @@ void loop() {
         BitVector *pdata = pdec->take_away_data();
 
         if (pdata) {
-            M5.Lcd.print("Data: ");
+            Serial.print("Data: ");
             char *buf = pdata->to_str();
             if (buf) {
-                M5.Lcd.print(buf);
+                Serial.print(buf);
                 free(buf);
             }
             delete pdata;
         }
-        M5.Lcd.println();
+        Serial.print("\n");
         output_timings(pdec, nb_bits);
-
-        delay(1000);  // Delay for visualization
 
 #ifdef OUTPUT_FIRST_DECODED_ONLY
         pdec = nullptr;
+        delay(1000);
 #else
         pdec = pdec->get_next();
 #endif
@@ -129,3 +142,5 @@ void loop() {
     }
     delete pdec0;
 }
+
+// vim: ts=4:sw=4:tw=80:et
